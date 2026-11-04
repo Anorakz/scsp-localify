@@ -88,12 +88,19 @@ project "ImasSCSP-localify"
         "./src/**.def",
     }
 
+    removefiles {
+        "./src/full_compat_probe.cpp",
+        "./src/localization_lite_standalone.cpp",
+    }
+
     includedirs {
         "./src",
         "%{prj.location}/src",
     }
 
     dependencies.imports()
+
+    links { "urlmon" }
 
     linkoptions { conan_sharedlinkflags }
 
