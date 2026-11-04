@@ -62,7 +62,7 @@ jobs:
           mkdir package
           cp build/bin/x64/Release/version.dll package/version.dll
           cp resources/scsp-config.json package/scsp-config.json
-          cp -r resources/schinese/scsp_localify package/scsp_localify
+          if (Test-Path "resources/schinese/scsp_localify") { cp -r resources/schinese/scsp_localify package/scsp_localify }
       - uses: actions/upload-artifact@v4
         with:
           name: scsp-localify
